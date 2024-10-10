@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnonMe Social App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Section -->
+    <div class="login" id="login-screen">
+        <div class="login-container">
+            <h2>Login to AnonMe</h2>
+            <form>
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="button" class="login-button" onclick="login()">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header" id="main-header" style="display: none;">
+        <h1>AnonMe</h1>
+        <div class="tabs">
+            <button class="tab active">Trending</button>
+            <button class="tab">Confessions</button>
+            <button class="tab">Blind Date</button>
+        </div>
+    </div>
+
+    <!-- Feed Section -->
+    <div class="feed" id="feed-section" style="display: none;">
+        <!-- Sample Post Card -->
+        <div class="post-card">
+            <div class="avatar">
+                <img src="avatar1.png" alt="User Avatar">
+            </div>
+            <div class="post-content">
+                <h2>@AnonymousUser123</h2>
+                <p>Today, I had the most wonderful time walking by the beach and seeing the sunset. It made me realize how important small moments are.</p>
+                <div class="post-actions">
+                    <button class="like-button">Like</button>
+                    <button class="comment-button">Comment</button>
+                    <button class="reaction-button">React</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- More Post Cards -->
+        <div class="post-card">
+            <div class="avatar">
+                <img src="avatar2.png" alt="User Avatar">
+            </div>
+            <div class="post-content">
+                <h2>@MysteriousSmile</h2>
+                <p>Does anyone know of a hidden spot for the best souvlaki in Athens? I've been on the hunt for the perfect one!</p>
+                <div class="post-actions">
+                    <button class="like-button">Like</button>
+                    <button class="comment-button">Comment</button>
+                    <button class="reaction-button">React</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Avatar Customization Section -->
+    <div class="avatar-customization" id="avatar-customization-section" style="display: none;">
+        <h2>Customize Your Avatar</h2>
+        <div class="avatar-options">
+            <div class="option">
+                <label for="avatar-color">Color:</label>
+                <input type="color" id="avatar-color" name="avatar-color" value="#ffcc00">
+            </div>
+            <div class="option">
+                <label for="avatar-accessories">Accessories:</label>
+                <select id="avatar-accessories" name="avatar-accessories">
+                    <option value="none">None</option>
+                    <option value="hat">Hat</option>
+                    <option value="glasses">Glasses</option>
+                    <option value="scarf">Scarf</option>
+                </select>
+            </div>
+            <button class="save-avatar">Save Avatar</button>
+        </div>
+    </div>
+
+    <!-- Blind Date Match Section -->
+    <div class="blind-date" id="blind-date-section" style="display: none;">
+        <h2>Blind Date Match</h2>
+        <div class="match-carousel">
+            <div class="avatar">
+                <img src="avatar3.png" alt="Potential Match Avatar">
+                <h3>@MysteryPerson</h3>
+                <button class="connect-button">Connect</button>
+            </div>
+            <div class="avatar">
+                <img src="avatar4.png" alt="Potential Match Avatar">
+                <h3>@HiddenGem</h3>
+                <button class="connect-button">Connect</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Section -->
+    <div class="chat" id="chat-section" style="display: none;">
+        <h2>Chat with @HiddenGem</h2>
+        <div class="chat-box">
+            <div class="message user-message">
+                <div class="avatar">
+                    <img src="avatar4.png" alt="User Avatar">
+                </div>
+                <p>Hey there! How's your day been?</p>
+            </div>
+            <div class="message my-message">
+                <div class="avatar">
+                    <img src="my-avatar.png" alt="My Avatar">
+                </div>
+                <p>It’s been great! Just relaxing and enjoying some time off.</p>
+            </div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" placeholder="Type a message..." class="chat-input">
+            <button class="send-button">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username && password) {
+                // Simulate a login success
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('main-header').style.display = 'block';
+                document.getElementById('feed-section').style.display = 'block';
+            } else {
+                alert('Please enter a valid username and password.');
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!-- Styles for the Social App (styles.css) -->
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f0f4f8;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #ffffff;
+    }
+
+    .login-container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
+
+    input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .login-button {
+        background-color: #6200ea;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .login-button:hover {
+        background-color: #3700b3;
+    }
+
+    .header {
+        background-color: #ffffff;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    h1 {
+        color: #3b5998;
+        font-weight: 700;
+    }
+
+    .tabs {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .tab {
+        background-color: #4caf50;
+        color: #ffffff;
+        border: none;
+        padding: 10px;
+        margin: 0 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .tab.active {
+        background-color: #43a047;
+    }
+
+    .tab:hover {
+        background-color: #388e3c;
+    }
+
+    .feed {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .post-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        padding: 15px;
+        margin-bottom: 20px;
+        transition: transform 0.2s;
+    }
+
+    .post-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .avatar img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+
+    .post-content {
+        flex-grow: 1;
+    }
+
+    .post-content h2 {
+        margin: 0;
+        font-size: 1.2em;
+        color: #333;
+    }
+
+    .post-content p {
+        margin: 10px 0;
+        line-height: 1.5;
+    }
+
+    .post-actions button {
+        background-color: #6200ea;
+        color: #ffffff;
+        border: none;
+        padding: 8px 12px;
+        margin-right: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .post-actions button:hover {
+        background-color: #3700b3;
+    }
+
+    .avatar-customization {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .avatar-options {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .option {
+        margin-bottom: 15px;
+    }
+
+    .save-avatar {
+        background-color: #4caf50;
+        color: #ffffff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .save-avatar:hover {
+        background-color: #388e3c;
+    }
+
+    .blind-date {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .match-carousel {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .connect-button {
+        background-color: #6200ea;
+        color: #ffffff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .connect-button:hover {
+        background-color: #3700b3;
+    }
+
+    .chat {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .chat-box {
+        margin-bottom: 20px;
+        max-height: 300px;
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+
+    .message {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .message p {
+        background-color: #f1f1f1;
+        padding: 10px;
+        border-radius: 8px;
+        margin-left: 10px;
+    }
+
+    .chat-input-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .chat-input {
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-right: 10px;
+    }
+
+    .send-button {
+        background-color: #6200ea;
+        color: #ffffff;
+        border: none;
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .send-button:hover {
+        background-color: #3700b3;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 600px) {
+        .feed, .avatar-customization, .blind-date, .chat {
+            padding: 15px;
+            margin: 10px;
+        }
+
+        .post-card {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .avatar img {
+            margin: 0 0 10px 0;
+        }
+
+        .post-content h2 {
+            font-size: 1em;
+        }
+
+        .post-content p {
+            font-size: 0.9em;
+        }
+
+        .tabs {
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            margin: 5px;
+            padding: 8px;
+        }
+
+        .message {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .message p {
+            margin-left: 0;
+        }
+    }
+</style>
